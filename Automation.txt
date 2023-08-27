@@ -1,0 +1,33 @@
+Гайд https://www.youtube.com/watch?v=SMBBE8NJ7qA&list=PLWIBmxdTr81dDEZRiNxoy55dIDWtMyOoc&index=4&ab_channel=CopeAutomation
+Офф гайд - https://appium.io/docs/en/2.0/quickstart/
+Вместо Апиум десктопа юзать https://appium.io/docs/en/2.0/quickstart/install/
+Чтоб установить NPM гайд https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows
+
+Appium inspector - добавить path  /wd/hub
+Desired Capabilities:
+{
+  "platformName": "Android",
+  "appium:deviceName": "03748118C7003434",
+  "appium:app": "D:\\.IT\\apk\\app-develop-debug.apk",
+  "appium:automationName": "uiautomator2",
+  "appium:caps[\"uiautomator2ServerInstallTimeout\"]": 60000
+}
+
+Install appium into the project
+cd D:\.IT\PythonQaTests\venv\Scripts
+pip install Appium-Python-Client
+
+
+
+Create script to run session automaticaly, not from the inspector:
+from appium import webdriver
+
+desired_cap = {
+    "platformName": "Android",
+    "appium:deviceName": "03748118C7003434",
+    "appium:app": "D:\\.IT\\apk\\app-develop-debug.apk",
+    "appium:automationName": "uiautomator2",
+    "appium:caps[\"uiautomator2ServerInstallTimeout\"]": 60000
+}
+
+driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_cap)
